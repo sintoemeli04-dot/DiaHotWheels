@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti ❤️</title>
+<style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #000000;
+            color: white;
+            font-family: Georgia, serif;
+            overflow: hidden;
+        }
+        /* =========================
+           VISTAS
+        ========================= */
+
+        .vista {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: #000000;
+        }
+        .vista.activa {
+            display: block;
+        }
+
+
+        /* =========================
+           PRIMERA PANTALLA
+        ========================= */
+
+        #vistaCarga {
+            text-align: center;
+            padding-top: 120px;
+        }
+        #vistaCarga h1 {
+    color: #168cff;
+    font-size: 32px;
+    margin-top: 170px;
+    margin-bottom: 25px;
+}
+        .carritoCarga {
+    width: 180px;
+    position: absolute;
+    top: 390px;
+    left: -200px;
+
+    animation: carritoCarga 4s linear infinite;
+}
+         @keyframes carritoCarga {
+
+            0% {
+                left: -200px;
+            }
+
+            100% {
+                left: calc(100vw + 200px);
+            }
+
+        }
+
+
+        /* Barra */
+
+        .barra {
+            width: 70%;
+            max-width: 500px;
+            height: 15px;
+            border: 2px solid #168cff;
+            border-radius: 20px;
+            margin: 180px auto 15px;
+            overflow: hidden;
+        }
+
+        .progreso {
+            height: 100%;
+            width: 0%;
+            background: #168cff;
+            transition: width 0.05s linear;
+        }
+
+        #porcentaje {
+            color: #168cff;
+            font-size: 22px;
+        }
+         /* =========================
+           SEGUNDA PANTALLA
+        ========================= */
+
+        #vistaFlores {
+            background: #000000;
+        }
+
+        /* Estrellas */
+
+        .estrella {
+            position: absolute;
+            color: #cfcfcf;
+            font-size: 8px;
+            opacity: 0.8;
+        }
+
+        .e1 {
+            top: 10%;
+            left: 10%;
+        }
+
+        .e2 {
+            top: 20%;
+            left: 30%;
+        }
+        .e3 {
+            top: 8%;
+            left: 55%;
+        }
+
+        .e4 {
+            top: 25%;
+            left: 80%;
+        }
+
+        .e5 {
+            top: 45%;
+            left: 15%;
+        }
+
+        .e6 {
+            top: 60%;
+            left: 85%;
+        }
+
+        .e7 {
+            top: 75%;
+            left: 25%;
+        }
+
+        .e8 {
+            top: 70%;
+            left: 70%;
+        }
+
+        .e9 {
+            top: 40%;
+            left: 50%;
+        }
+  /* =========================
+           CARRITOS QUE PASAN
+        ========================= */
+
+        .carritoFugaz {
+            position: absolute;
+            width: 100px;
+            opacity: 0.8;
+            z-index: 1;
+
+            animation: pasarCarrito 4s linear infinite;
+        }
+
+        .carritoFugaz.uno {
+            top: 25%;
+            left: -150px;
+            animation-delay: 1s;
+        }
+
+        .carritoFugaz.dos {
+            top: 55%;
+            left: -150px;
+            width: 80px;
+            animation-delay: 3s;
+        }
+        @keyframes pasarCarrito {
+
+            0% {
+                transform: translateX(-150px);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.8;
+            }
+
+            90% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateX(calc(100vw + 200px));
+                opacity: 0;
+            }
+
+        }
+
+
+        /* =========================
+           RAMO
+        ========================= */
+
+        .ramo {
+            position: absolute;
+            width: 100%;
+            height: 70%;
+            bottom: 0;
+            left: 0;
+        }
+
+
+        /* Cada flor */
+
+        .flor {
+            position: absolute;
+            width: 100px;
+            cursor: pointer;
+            z-index: 5;
+
+            transition:
+                transform 0.3s ease,
+                filter 0.3s ease;
+        }
+
+        .flor:hover {
+            transform: scale(1.12);
+            filter: drop-shadow(0 0 15px #168cff);
+        }
+
+        .flor img {
+            width: 100%;
+            display: block;
+        }
+        /* Posiciones */
+
+        .flor1 {
+            left: 5%;
+            bottom: 10%;
+            animation: subir1 2s ease-out forwards;
+        }
+
+        .flor2 {
+            left: 18%;
+            bottom: 18%;
+            animation: subir2 2.2s ease-out forwards;
+        }
+
+        .flor3 {
+            left: 31%;
+            bottom: 25%;
+            animation: subir3 2.4s ease-out forwards;
+        }
+
+        .flor4 {
+            left: 44%;
+            bottom: 30%;
+            animation: subir4 2.6s ease-out forwards;
+        }
+
+        .flor5 {
+            left: 57%;
+            bottom: 24%;
+            animation: subir5 2.4s ease-out forwards;
+        }
+
+        .flor6 {
+            left: 70%;
+            bottom: 17%;
+            animation: subir6 2.2s ease-out forwards;
+        }
+
+        .flor7 {
+            left: 83%;
+            bottom: 10%;
+            animation: subir7 2s ease-out forwards;
+        }
+
+
+        @keyframes subir1 {
+            from {
+                transform: translateY(300px);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+        @keyframes subir2 {
+            from {
+                transform: translateY(300px);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes subir3 {
+            from {
+                transform: translateY(300px);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes subir4 {
+            from {
+                transform: translateY(300px);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes subir5 {
+            from {
+                transform: translateY(300px);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes subir6 {
+            from {
+                transform: translateY(300px);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+         @keyframes subir7 {
+            from {
+                transform: translateY(300px);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================
+           FRASE
+        ========================= */
+
+        #frase {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            width: 80%;
+
+            color: #168cff;
+            font-size: 28px;
+            text-align: center;
+
+            opacity: 0;
+            transition: opacity 0.5s ease;
+
+            z-index: 10;
+
+            text-shadow:
+                0 0 10px #168cff,
+                0 0 20px #168cff;
+        }
+
+        #frase.mostrar {
+            opacity: 1;
+        }
+
+
+        /* =========================
+           INSTRUCCIÓN
+        ========================= */
+
+        #instructivo {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            color: white;
+            font-size: 18px;
+
+            z-index: 20;
+        }
+        /* =========================
+           BOTÓN CONTINUAR
+        ========================= */
+
+        #continuar {
+            display: none;
+
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            padding: 12px 30px;
+
+            background: #168cff;
+            color: white;
+
+            border: none;
+            border-radius: 25px;
+
+            font-size: 18px;
+            font-family: Georgia, serif;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 0 10px #168cff,
+                0 0 20px #168cff;
+
+            z-index: 30;
+        }
+
+
+        /* =========================
+           TERCERA PANTALLA
+        ========================= */
+
+        #vistaFinal {
+            text-align: center;
+            padding-top: 150px;
+        }
+
+        #vistaFinal h1 {
+    color: white;
+    font-size: 40px;
+    text-shadow:
+        0 0 5px white,
+        0 0 10px white,
+        0 0 20px white,
+        0 0 35px white;
+}
+
+        .cargaFinal {
+            width: 70%;
+            max-width: 500px;
+            height: 15px;
+
+            border: 2px solid #168cff;
+            border-radius: 20px;
+
+            margin: 80px auto 15px;
+            overflow: hidden;
+        }
+
+        .progresoFinal {
+            width: 0%;
+            height: 100%;
+            background: #168cff;
+        }
+
+        #porcentajeFinal {
+            color: #168cff;
+            font-size: 22px;
+        }
+
+    </style>
+</head>
+
+
+<body>
+     <!-- ==================================
+         PANTALLA 1
+    ================================== -->
+
+    <section id="vistaCarga" class="vista activa">
+
+        <h1>
+    ARRANCANDO TU SORPRESA… 🏎️
+</h1>
+
+        <img
+            src="carrito.png"
+            class="carritoCarga"
+            alt="Carrito Hot Wheels"
+        >
+
+        <div class="barra">
+
+            <div
+                id="progreso"
+                class="progreso">
+            </div>
+
+        </div>
+
+        <div id="porcentaje">
+            0%
+        </div>
+
+    </section>
+<!-- ==================================
+         PANTALLA 2
+    ================================== -->
+
+    <section id="vistaFlores" class="vista">
+
+
+        <!-- Estrellas -->
+
+        <span class="estrella e1">✦</span>
+        <span class="estrella e2">✧</span>
+        <span class="estrella e3">✦</span>
+        <span class="estrella e4">✧</span>
+        <span class="estrella e5">✦</span>
+        <span class="estrella e6">✧</span>
+        <span class="estrella e7">✦</span>
+        <span class="estrella e8">✧</span>
+        <span class="estrella e9">✦</span>
+<!-- Carritos que pasan -->
+
+        <img
+            src="carrito.png"
+            class="carritoFugaz uno"
+            alt=""
+        >
+
+        <img
+            src="carrito.png"
+            class="carritoFugaz dos"
+            alt=""
+        ><!-- Frase -->
+
+        <div id="frase"></div>
+
+
+        <!-- RAMO -->
+
+        <div class="ramo">
+
+
+            <div
+                class="flor flor1"
+                onclick="tocarFlor(1)"
+            >
+                <img
+                    src="flor1.png"
+                    alt="Flor 1"
+                >
+            </div>
+
+
+            <div
+                class="flor flor2"
+                onclick="tocarFlor(2)"
+            >
+                <img
+                    src="flor2.png"
+                    alt="Flor 2"
+                >
+            </div>
+
+
+            <div
+                class="flor flor3"
+                onclick="tocarFlor(3)"
+            >
+                <img
+                    src="flor3.png"
+                    alt="Flor 3"
+                >
+            </div>
+
+
+            <div
+                class="flor flor4"
+                onclick="tocarFlor(4)"
+            >
+                <img
+                    src="flor4.png"
+                    alt="Flor 4"
+                >
+            </div>
+
+
+            <div
+                class="flor flor5"
+                onclick="tocarFlor(5)"
+            >
+                <img
+                    src="flor5.png"
+                    alt="Flor 5"
+                >
+            </div>
+
+
+            <div
+                class="flor flor6"
+                onclick="tocarFlor(6)"
+            >
+                <img
+                    src="flor6.png"
+                    alt="Flor 6"
+                >
+            </div>
+
+
+            <div
+                class="flor flor7"
+                onclick="tocarFlor(7)"
+            >
+                <img
+                    src="flor7.png"
+                    alt="Flor 7"
+                >
+            </div>
+
+
+        </div>
+         <!-- Instrucción -->
+
+        <div id="instructivo">
+            Toca cada flor
+        </div>
+
+
+        <!-- Botón -->
+
+        <button
+            id="continuar"
+            onclick="irAlFinal()"
+        >
+            Continúa
+        </button>
+
+
+    </section>
+
+
+
+    <!-- ==================================
+         PANTALLA 3
+    ================================== -->
+
+    <section id="vistaFinal" class="vista">
+
+        <h1>
+            <h1>
+    FELIZ 30 DE SEPTIEMBRE MI AMOR 💗
+        </h1>
+
+        <div class="cargaFinal">
+
+            <div
+                id="progresoFinal"
+                class="progresoFinal">
+            </div>
+
+        </div>
+
+        <div id="porcentajeFinal">
+            0%
+        </div>
+
+    </section>
+
+
+
+    <script>
+        /* ==================================
+           CARGA INICIAL
+        ================================== */
+
+        let porcentaje = 0;
+
+        const intervaloCarga = setInterval(() => {
+
+            porcentaje++;
+
+            document.getElementById("progreso").style.width =
+                porcentaje + "%";
+
+            document.getElementById("porcentaje").textContent =
+                porcentaje + "%";
+
+
+            if (porcentaje >= 100) {
+
+                clearInterval(intervaloCarga);
+
+                setTimeout(() => {
+
+                    document
+                        .getElementById("vistaCarga")
+                        .classList.remove("activa");
+
+                    document
+                        .getElementById("vistaFlores")
+                        .classList.add("activa");
+
+                }, 500);
+
+            }
+
+        }, 40);
+        /* ==================================
+           FRASES DE LAS FLORES
+        ================================== */
+
+        const frases = {
+
+            1: "TE AMO ❤️",
+
+            2: "ERES EL MEJOR 🌟 ",
+
+            3: "TEN BONITO DÍA ☀️",
+
+            4: "ESPECIALMENTE PARA TI 💙",
+
+            5: "ESPERO TE GUSTE 🫂",
+
+            6: "LA QUE SONRIE SOY YO, PERO EL MOTIVO ERES TU 💖",
+
+            7: "PENSÉ EN TI AL HACERLO 😘"
+
+        };
+
+
+        let floresTocadas = new Set();
+
+
+        function tocarFlor(numero) {
+
+            const frase = document.getElementById("frase");
+
+            frase.textContent = frases[numero];
+
+            frase.classList.remove("mostrar");
+
+
+            setTimeout(() => {
+
+                frase.classList.add("mostrar");
+
+            }, 50);
+
+
+            floresTocadas.add(numero);
+
+
+            /*
+                Cuando se hayan tocado
+                las 7 flores...
+            */
+
+            if (floresTocadas.size === 7) {
+
+                setTimeout(() => {
+
+                    document
+                        .getElementById("instructivo")
+                        .style.display = "none";
+
+                    document
+                        .getElementById("continuar")
+                        .style.display = "block";
+
+                }, 700);
+
+            }
+
+        }
+/* ==================================
+           IR A LA PANTALLA FINAL
+        ================================== */
+
+        function irAlFinal() {
+
+            document
+                .getElementById("vistaFlores")
+                .classList.remove("activa");
+
+            document
+                .getElementById("vistaFinal")
+                .classList.add("activa");
+
+
+            let porcentajeFinal = 0;
+
+
+            const intervaloFinal = setInterval(() => {
+
+                porcentajeFinal++;
+
+
+                document
+                    .getElementById("progresoFinal")
+                    .style.width =
+                    porcentajeFinal + "%";
+
+
+                document
+                    .getElementById("porcentajeFinal")
+                    .textContent =
+                    porcentajeFinal + "%";
+
+
+                if (porcentajeFinal >= 100) {
+
+                    clearInterval(intervaloFinal);
+
+
+                    setTimeout(() => {
+
+                        /*
+                           Al terminar la carga,
+                           dejamos la pantalla completamente negra.
+                        */
+
+                        document
+                            .getElementById("vistaFinal")
+                            .innerHTML = "";
+
+                    }, 500);
+
+                }
+
+            }, 40);
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
